@@ -2,46 +2,219 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Perdón</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Proyecto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
 </head>
 <body>
-    <div class="container">
-        
-        <div id="gifContainer">
-            <img id="gifContainerImg" src="mocha.gif" alt="Ositos Iniciales">
+    <header>
+        <div class="navbar">
+            <div class="navbar-left">
+                <a href="#" onclick="loadUserInfo('inicio')">Inicio</a>
+            </div>
+            <div class="navbar-right">
+                <span class="menu-icon" onclick="openNav()">&#9776; Contenido</span>
+            </div>
         </div>
-        <div id="happyGifContainer" style="display: none;">
-            <img src="mocha5final.gif" alt="Ositos Felices" style="width: 100%; height: 100%;">
-        </div>
-        <div id="happyGifContainer2" style="display: none;">
-            <img src="mocha6final.gif" alt="Ositos Felices" style="width: 100%; height: 100%;">
-        </div>
-        <div id="happyGifContainer3" style="display: none;">
-            <img src="mocha7final.gif" alt="Ositos Felices" style="width: 100%; height: 100%;">
-        </div>
-        <div id="happyGifContainer4" style="display: none;">
-            <img src="mocha9final.gif" alt="Ositos Felices" style="width: 100%; height: 100%;">
-        </div>
-        <div id="sadGifContainer" style="display: none;">
-            <img src="mocha2.gif" alt="Osito Triste" style="width: 80%; height: 80%;">
-        </div>
-        <div id="sadGifContainer1" style="display: none;">
-            <img src="mocha3.gif" alt="Osito Triste" style="width: 80%; height: 80%;">
-        </div>
-        <div id="sadGifContainer2" style="display: none;">
-            <img src="mocha4.gif" alt="Osito Triste" style="width: 80%; height: 80%;">
-        </div>
-        
-        <h1 id="question">¿Me perdonas?</h1>
-        <div id="messageContainer" style="display: none;"></div>
+    </header>
 
-        <button id="siBtn">Sí</button>
-        <button id="noBtn">No</button>
-        
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#" onclick="loadUserInfo('sabiasQue')">¿Sabías que?</a>
+        <a href="#" onclick="loadUserInfo('responsabilidadVoto')">La responsabilidad en tu Voto</a>
+        <a href="#" onclick="loadUserInfo('votar')">¿Votar?</a>
+        <a href="#" onclick="loadUserInfo('SistemaPoliticoMexico')">Sistema Político de México</a>
+        <a href="#" onclick="loadUserInfo('debate')">Debate</a>
     </div>
 
-    <script src="script.js"></script>
+    <div class="container">
+        <div id="content" class="content">
+            <!-- El contenido se actualizará aquí -->
+        </div>
+        <div class="debate-section">
+            <div class="post-box">
+                <input type="text" id="userName" placeholder="Nombre">
+                <textarea id="postContent" placeholder="¿Qué es lo que te gustaría contar?"></textarea>
+                <button onclick="publishPost()">Publicar</button>
+            </div>
+            <div id="posts" class="posts">
+                <!-- Las publicaciones aparecerán aquí -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const userInfo = {
+            sabiasQue: `
+                <h2>La Importancia de las Instituciones Democráticas</h2>
+                <ol>
+                    <li><b>¿Sabías que son las instituciones?</b> Son estructuras y organizaciones que establecen y regulan normas en la sociedad. En el contexto político, incluyen el sistema legislativo, el poder ejecutivo, el poder judicial, y las entidades electorales y administrativas.</li>
+                    <li><b>¿Sabes que es la democracia?</b> Es un sistema de gobierno donde el poder es ejercido por el pueblo, ya sea directamente o a través de representantes elegidos. Se caracteriza por la participación ciudadana, la representación, la protección de libertades y derechos, y el estado de derecho.</li>
+                    <li><b>¿Sabes en que está sustentado el voto?</b> El derecho al voto está sustentado en el artículo 35 de la constitución política de los Estados Unidos mexicanos está garantizado por constituciones, leyes electorales y, en algunos casos, tratados internacionales. Estos marcos aseguran la accesibilidad, equidad y protección del voto como mecanismo de participación democrática.</li>
+                </ol>
+            `,
+            responsabilidadVoto: `
+                <h2>La Responsabilidad en tu Voto</h2>
+                <ol>
+                    <li><b>Historia del Voto</b> La historia del voto en México ha experimentado cambios significativos a lo largo del tiempo. Al principio, solo un pequeño grupo de personas tenía derecho a votar, pero con el tiempo se amplió el sufragio. En 1917, se estableció el sufragio universal masculino y en 1953 se otorgó el derecho al voto a las mujeres. Desde entonces, el voto es considerado un derecho fundamental y es ejercido en elecciones para elegir a representantes del gobierno a nivel local y nacional. Se han implementado reformas para garantizar la transparencia y la participación ciudadana en los procesos electorales.</li>
+                    <li><b>Responsabilidad Ciudadana</b> La responsabilidad ciudadana en México implica participar en elecciones, respetar las leyes y los derechos humanos, involucrarse en la vida comunitaria y contribuir al desarrollo económico. Es fundamental para construir una sociedad justa y democrática.</li>
+                    <li><b>Impacto de la Participación</b> La participación ciudadana en el voto tiene un impacto significativo en la democracia. Al votar, los ciudadanos eligen a sus representantes y expresan su voluntad política. Esto fortalece la legitimidad democrática, fomenta la responsabilidad política, asegura la representatividad, influye en las políticas públicas y promueve el control y la rendición de cuentas de los líderes políticos. En resumen, la participación ciudadana en el voto es fundamental para fortalecer la democracia y garantizar la participación activa de los ciudadanos en la toma de decisiones políticas.</li>
+                </ol>
+            `,
+            votar: `
+                <h2>¿Votar?</h2>
+                <ol>
+                    <li><b>¿Cuál es la importancia del voto?</b> 
+                        <ul>
+                            <li>Expresión de la Voluntad popular</li>
+                            <li>Legitimidad del gobierno</li>
+                            <li>Responsabilidad y transparencia</li>
+                            <li>Protección de derechos y libertades</li>
+                            <li>Participación cívica</li>
+                        </ul>
+                    </li>
+                    <li><b>Efectos de la abstención durante el voto</b>
+                        <ul>
+                            <li>Legitimidad Reducida</li>
+                            <li>Representación Inequitativa</li>
+                            <li>Polarización</li>
+                            <li>Desconexión Cívica</li>
+                        </ul>
+                        <p>Efectos Positivos:</p>
+                        <ul>
+                            <li>Mensaje de Descontento</li>
+                            <li>Menor Manipulación</li>
+                            <li>Conciencia Crítica</li>
+                        </ul>
+                    </li>
+                    <li><b>¿Tener educación cívica durante el voto, Importa?</b> 
+                        <p>Sí, es fundamental tener educación cívica durante el voto. La educación cívica permite a los ciudadanos comprender mejor sus derechos y responsabilidades, la importancia de su participación en el proceso democrático, y cómo sus decisiones pueden influir en el futuro de su comunidad y país. Además, ayuda a los votantes a tomar decisiones informadas, evaluar críticamente a los candidatos y las propuestas, y participar de manera efectiva y responsable en la vida pública.</p>
+                    </li>
+                </ol>
+            `,
+            SistemaPoliticoMexico: `
+                <h2>Sistema Político de México</h2>
+                <ol>
+                    <li><b>Poder Ejecutivo:</b> Presidente, seis años sin reelección, administra y dirige política exterior.</li>
+                    <li><b>Poder Legislativo:</b> Congreso bicameral (Cámara de Diputados y Senado) crea leyes y supervisa.</li>
+                    <li><b>Poder Judicial:</b> Suprema Corte y tribunales aseguran constitucionalidad y manejan casos.</li>
+                    <li><b>Sistema Electoral:</b> INE organiza elecciones; TEPJF resuelve disputas.</li>
+                    <li><b>Participación Ciudadana:</b> Garantías constitucionales protegen derechos; ciudadanos eligen representantes.</li>
+                </ol>
+                <h2>Ejecutivo</h2>
+                <p>Presidente: Jefe de Estado y Gobierno, elegido por seis años sin reelección. Administra el gobierno y dirige política exterior y defensa.</p>
+                <h2>Legislativo</h2>
+                <p>Congreso de la Unión: Bicameral<br>
+                Cámara de Diputados: 500 miembros. Elabora y modifica leyes.<br>
+                Senado: 128 senadores. Maneja política exterior y ratifica nombramientos.</p>
+                <h2>Judicial</h2>
+                <p>Suprema Corte: Interpreta la Constitución y protege derechos humanos. Incluye tribunales federales y locales.</p>
+                <h2>Gobiernos Locales</h2>
+                <p>Estados: 32 entidades con gobiernos y congresos locales.<br>
+                Municipios: Divisiones de los estados con gobiernos locales para urbanismo, seguridad y servicios públicos.</p>
+                <p><i>Artículo 40 de la Constitución Política de los Estados Unidos Mexicanos<br>
+                <h2>Forma de Gobierno:</h2>
+                <p>México es una República representativa, democrática y federal.<br>
+                Soberanía de los Estados: Los estados son libres y soberanos en su régimen interior, pero unidos en una federación bajo la Constitución.</i></p>
+            `,
+            debate: `
+                <h2>Debate</h2>
+                <p>Esta sección es para debates y discusiones. Puedes compartir tus ideas y opiniones aquí.</p>
+            `,
+            inicio: `
+                <h1>Tu Voto Tiene Poder</h1>
+                <p>Votar es fundamental para fortalecer la democracia y asegurar que las decisiones que afectan nuestra vida diaria reflejen la voluntad de la mayoría.</p>
+                <p>Al votar, participamos activamente en la elección de nuestros líderes y en la formación de políticas públicas.</p>
+                <p>Es una herramienta poderosa para promover cambios sociales, proteger nuestros derechos y libertades, y garantizar que nuestras voces sean escuchadas. Además, una alta participación electoral incrementa la legitimidad de los gobiernos y ayuda a prevenir la corrupción al elegir a representantes más transparentes y responsables.</p>
+                <p>Votar no solo es un derecho, sino también una responsabilidad cívica que cada ciudadano debe ejercer para construir un futuro mejor para todos.</p>
+                <div class="cta-box">
+                    Te invitamos a adentrarte en los temas que abordamos en esta página, dando click en contenido
+                </div>
+            `
+        };
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function loadUserInfo(infoType) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = userInfo[infoType] || 'Contenido no disponible.';
+            if (infoType === 'debate') {
+                document.querySelector('.debate-section').style.display = 'block';
+            } else {
+                document.querySelector('.debate-section').style.display = 'none';
+            }
+        }
+
+        async function publishPost() {
+            const userName = document.getElementById('userName').value.trim();
+            const postContent = document.getElementById('postContent').value.trim();
+
+            if (userName === "" || postContent === "") {
+                alert("El nombre y el contenido no pueden estar vacíos.");
+                return;
+            }
+
+            const post = {
+                usuario: userName,
+                contenido: postContent
+            };
+
+            try {
+                const response = await fetch('insertar.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams(post)
+                });
+
+                const result = await response.text();
+                alert(result);
+                loadPosts();
+            } catch (error) {
+                console.error('Error al publicar la publicación:', error);
+            }
+        }
+
+        async function loadPosts() {
+            try {
+                const response = await fetch('consultarPost.php');
+                const posts = await response.json();
+                renderPosts(posts);
+            } catch (error) {
+                console.error('Error al cargar las publicaciones:', error);
+            }
+        }
+
+        function renderPosts(posts) {
+            const postsContainer = document.getElementById('posts');
+            postsContainer.innerHTML = ''; // Limpiar el contenido anterior
+            posts.forEach(post => addPostToDOM(post));
+        }
+
+        function addPostToDOM(post) {
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `
+                <h3>${post.usuario}</h3>
+                <p>${post.contenido}</p>
+                <small>${new Date(post.fecha).toLocaleString()}</small>
+            `;
+            document.getElementById('posts').appendChild(postElement);
+        }
+
+        // Cargar posts al iniciar
+        loadPosts();
+    </script>
 </body>
 </html>

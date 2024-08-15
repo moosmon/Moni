@@ -1,0 +1,126 @@
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-image: url('foto.png'); 
+    background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Fija la imagen de fondo */
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #362828e0;
+    color: #d1b1b1ec;
+    margin: 0;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-left a {
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 60px;
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.content {
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    margin: 0 10px; /* Agrega márgenes laterales */
+    background-color: #fff;
+    border-radius: 5px; /* Añade un borde redondeado */
+}
+
+.post-box {
+    margin-top: 20px;
+}
+
+.post-box input[type="text"],
+.post-box textarea {
+    width: calc(100% - 20px); /* Ajusta el ancho para tener en cuenta el padding */
+    padding: 10px; /* Agrega padding interno */
+    margin-bottom: 10px; /* Espacio entre los campos */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+.post-box textarea {
+    height: 100px;
+}
+
+.posts {
+    margin-top: 20px;
+}
+
+.post {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+.cta-box {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    margin: 0 10px; /* Agrega márgenes laterales */
+}
